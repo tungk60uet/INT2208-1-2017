@@ -1,0 +1,77 @@
+*{}
+body{
+	background-color: #a5e0ec;
+}
+.mainTitle {
+    font-size: 200px;
+    font-family: myriad pro;
+    text-align: center;
+    color: rgba(179, 134, 206, 0.65);
+    position: relative;
+    top: 200px;
+    left: 181px;
+    font-weight: bold;
+}
+
+.anhphu {
+	width: 500px;
+	height:500px;
+	text-align: right;
+	/*background-image: url(righttop.jpg);
+	background-size: cover;*/
+    position: relative;
+    left: 80%;
+    right:0%;
+    top: -5px;
+
+}
+
+.start {
+    width: 964px;
+    height: 146px;
+    font-size: 101px;
+    font-family: cursive;
+    position: relative;
+    left: 177px;
+    top: 490px;
+    background-color: #55a7ea;
+    border-radius: 13%;
+    border-style: outset;
+    border-color: #6cc7c7;
+    border-bottom-color: #0b488e;
+    margin-bottom: 20px;
+    margin: auto;
+}
+._1start {
+    color: #7035a5;
+    position: relative;
+    text-align: center;
+
+}
+._2start {
+    color: #7035a5;
+    position: relative;
+    text-align: center;
+}
+._3start {
+    color: #7035a5;
+    position: relative;
+    text-align: center;
+}
+
+
+.mauxanh {
+    height: 146px;
+    width: 964px;
+    background-color: rgba(45, 116, 142, 0.54);
+    border-radius: 13%;
+    position: absolute;
+    top: 0px;
+    opacity: 0;
+    transition: all ease 0.9s;
+}
+
+
+.start:hover .mauxanh {
+    opacity: 1;
+}
