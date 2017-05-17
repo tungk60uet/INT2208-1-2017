@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2">
+      <a routerLink="/" class="btn btn-default"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></a>
+    </div>
+    <div class="col-xs-8 text-center">
+      <h4><b>{{Chude}}</b></h4>
+    </div>
+  </div>
+  <div class=" container jumbotron">
+    <div class="row text-center">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label>{{idQuestion}}/{{socau}}</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div style="height: 10px; background-color: #69dc42;">
+          <div [style.width]="tile" style="height: 100%; background-color: #123">
+
+          </div>
+        </div>
+        <h4><b>Dịch nội dung này</b></h4>
+        <p>
+          <a class="btn btn-info">
+            <span class="glyphicon glyphicon-volume-up"></span>
+          </a> {{currentQuestion.en}}</p>
+        <textarea [(ngModel)]="str" class="form-control" style="height: 150px; resize: none" placeholder="Gõ tiếng Việt"></textarea>
+      </div>
+    </div>
+    <br>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <button (click)="cancelClick()" type="button" class="btn btn-default">Bỏ qua</button>
+      </div>
+      <div class="col-xs-6 text-right">
+        <button (click)="checkClick()" type="button" class="btn btn-success">Tiếp tục</button>
+      </div>
+    </div>
+  </div>
+</div>

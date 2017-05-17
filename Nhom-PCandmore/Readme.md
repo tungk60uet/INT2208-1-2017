@@ -1,15 +1,19 @@
 ﻿Nhóm PCandmore
 
--Các thành viên:
+- Các thành viên:
 
-	•Nguyễn Văn Tùng(trưởng nhóm)
+	• Nguyễn Văn Tùng(trưởng nhóm)
 
-	•Nguyễn Châu Linh
+	• Nguyễn Châu Linh
 
-	•Bùi Đức Hùng
+	• Bùi Đức Hùng
 
-	•Nguyễn Việt Cường(hỏng laptop và không liên lạc được)
+	• Nguyễn Việt Cường(hỏng laptop và không liên lạc được)
 
--Bài tập nhóm sẽ làm một app học tiếng anh dựa trên trang doulingo
+- Bài tập nhóm sẽ làm một app học tiếng anh dựa trên trang doulingo
 
--Các framework sử dụng: angular 2 (client-side), nodeJS(server-side)
+- Sơ đồ useCase của ứng dụng
+
+
+
+- Các framework sử dụng: angular 2 (client-side), nodeJS(server-side)

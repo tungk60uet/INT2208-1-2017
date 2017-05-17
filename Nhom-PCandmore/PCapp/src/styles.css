@@ -1,0 +1,13 @@
+.img-circle{
+	max-width: 200px
+}
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+footer {
+  padding: 25px;
+}
+.btn{
+  border:0px; /* this was 1px earlier */
+ }
