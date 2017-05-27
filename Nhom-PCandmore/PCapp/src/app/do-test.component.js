@@ -23,6 +23,9 @@ var TestComponent = (function () {
         this.currentQuestion = 0;
         this.idQuestion = 1;
         this.socau = 0;
+        this.showCheck = false;
+        this.checkDapan = false;
+        selectGroupService.s = 0;
     }
     TestComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -31,11 +34,11 @@ var TestComponent = (function () {
         });
         this.selectGroupService.GetSingle(this.chudeId).subscribe(function (p) {
             _this.Chude = p.Name;
-            // console.log(this.Chude);
         });
         this.selectGroupService.SEARCHLIST(this.chudeId).subscribe(function (response) {
             _this.worddsrList = response;
             _this.socau = _this.worddsrList.length;
+            _this.selectGroupService.tongsocau = _this.socau;
             _this.currentQuestion = _this.worddsrList[0];
         });
     };
@@ -43,21 +46,30 @@ var TestComponent = (function () {
         this.sub.unsubscribe();
     };
     TestComponent.prototype.cancelClick = function () {
+        this.showCheck = !this.showCheck;
         if (this.idQuestion <= this.worddsrList.length) {
             this.falseAudio.play();
-            this.next();
+            this.checkDapan = false;
         }
     };
     TestComponent.prototype.checkClick = function () {
+        this.showCheck = !this.showCheck;
         if (this.idQuestion <= this.worddsrList.length) {
-            if (this.str == this.currentQuestion.vi && this.str != '') {
+            if (this.str.toLowerCase().trim() == this.currentQuestion.vi.toLowerCase() && this.str != '') {
                 this.trueAudio.play();
+                this.checkDapan = true;
+                this.selectGroupService.s++;
+                console.log(this.selectGroupService.s);
             }
             else {
                 this.falseAudio.play();
+                this.checkDapan = false;
             }
-            this.next();
         }
+    };
+    TestComponent.prototype.nextClick = function () {
+        this.showCheck = !this.showCheck;
+        this.next();
     };
     TestComponent.prototype.next = function () {
         this.str = "";

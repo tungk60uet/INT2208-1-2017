@@ -9,20 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var select_group_service_1 = require("./services/select-group.service");
 var ResuiltComponent = (function () {
-    function ResuiltComponent() {
+    function ResuiltComponent(selectGroupService) {
+        this.selectGroupService = selectGroupService;
+        this.diem = selectGroupService.s;
+        this.tong = selectGroupService.tongsocau;
     }
     return ResuiltComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], ResuiltComponent.prototype, "kq", void 0);
 ResuiltComponent = __decorate([
     core_1.Component({
         selector: 'resuilt',
         templateUrl: 'app/resuilt.component.html'
-    })
+    }),
+    __metadata("design:paramtypes", [select_group_service_1.SelectGroupService])
 ], ResuiltComponent);
 exports.ResuiltComponent = ResuiltComponent;
 //# sourceMappingURL=resuilt.component.js.map

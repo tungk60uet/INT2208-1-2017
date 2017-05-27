@@ -21,7 +21,7 @@ var SelectGroupComponent = (function () {
         });
     };
     SelectGroupComponent.prototype.OnClick = function (value) {
-        console.log(value);
+        //    console.log(value);
     };
     return SelectGroupComponent;
 }());

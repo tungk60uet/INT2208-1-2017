@@ -15,6 +15,7 @@ var SelectGroupService = (function () {
     function SelectGroupService(_http) {
         this._http = _http;
         this.apiUrl = "http://58ec21b97c2be2120024f154.mockapi.io/api/chudes/";
+        this.s = 0;
     }
     SelectGroupService.prototype.GetList = function () {
         return this._http.get(this.apiUrl).map(function (r) { return r.json(); });

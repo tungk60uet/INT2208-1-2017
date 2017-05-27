@@ -1,7 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core'
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core'
 import { Router, ActivatedRoute } from '@angular/router'
 import { SelectGroupService } from './services/select-group.service'
 import { Subscription } from 'rxjs'
+
 //import { SelectGroupService } from './services/select-group.service'
 @Component({
     selector: 'do-test',
@@ -19,20 +20,26 @@ export class TestComponent implements OnInit, OnDestroy {
     public Chude: string;
     public worddsrList: any;
     public sub: any;
-    public socau:number=0;
-    constructor(private router: Router, private activatedRoute: ActivatedRoute, public selectGroupService: SelectGroupService) {
+    public socau: number = 0;
+    public showCheck: boolean = false;
+public checkDapan:boolean=false;
+    constructor(private router: Router, private activatedRoute: ActivatedRoute, public selectGroupService: SelectGroupService
+    ) {
+selectGroupService.s=0;
     }
+
     ngOnInit(): void {
         this.sub = this.activatedRoute.params.subscribe(params => {
             this.chudeId = params['Id'];
         });
         this.selectGroupService.GetSingle(this.chudeId).subscribe(p => {
             this.Chude = p.Name;
-            // console.log(this.Chude);
+            
         })
         this.selectGroupService.SEARCHLIST(this.chudeId).subscribe((response: any) => {
             this.worddsrList = response;
-            this.socau=this.worddsrList.length;
+            this.socau = this.worddsrList.length;
+            this.selectGroupService.tongsocau=this.socau;
             this.currentQuestion = this.worddsrList[0];
         });
     }
@@ -40,21 +47,31 @@ export class TestComponent implements OnInit, OnDestroy {
         this.sub.unsubscribe();
     }
     cancelClick() {
+          this.showCheck=!this.showCheck;
         if (this.idQuestion <= this.worddsrList.length) {
             this.falseAudio.play();
-            this.next();
+             this.checkDapan=false;
         }
 
     }
     checkClick() {
+       this.showCheck=!this.showCheck;
         if (this.idQuestion <= this.worddsrList.length) {
-            if (this.str == this.currentQuestion.vi && this.str != '') {
+            if (this.str.toLowerCase().trim() == this.currentQuestion.vi.toLowerCase() && this.str != '') {
                 this.trueAudio.play();
+                this.checkDapan=true;
+                this.selectGroupService.s++;
+                console.log(this.selectGroupService.s);
+                
             } else {
                 this.falseAudio.play();
+                this.checkDapan=false;
             }
-            this.next();
         }
+    }
+    nextClick() {
+        this.showCheck=!this.showCheck;
+        this.next();
     }
     next() {
         this.str = "";
@@ -62,7 +79,7 @@ export class TestComponent implements OnInit, OnDestroy {
         if (this.idQuestion < this.worddsrList.length) {
             this.idQuestion++;
             this.currentQuestion = this.worddsrList[this.idQuestion - 1]
-        }else{
+        } else {
             this.router.navigate(["ketqua"]);
         }
 

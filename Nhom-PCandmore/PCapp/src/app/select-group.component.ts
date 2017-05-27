@@ -18,6 +18,6 @@ export class SelectGroupComponent implements OnInit {
        });
     }
     OnClick(value:any):void {
-        console.log(value);
+    //    console.log(value);
     }
 }

@@ -7,12 +7,13 @@ import { NavbarComponent } from './navbar.component';
 import { TestComponent } from './do-test.component';
 import { HttpModule } from '@angular/http';
 import { appRoutes } from './app.routes';
-import{FormsModule} from '@angular/forms'
-import {ResuiltComponent} from './resuilt.component'
+import{FormsModule} from '@angular/forms';
+import {ResuiltComponent} from './resuilt.component';
+
+
 @NgModule({
   imports: [
     BrowserModule, HttpModule, appRoutes,FormsModule
-
   ],
   declarations: [
     AppComponent,

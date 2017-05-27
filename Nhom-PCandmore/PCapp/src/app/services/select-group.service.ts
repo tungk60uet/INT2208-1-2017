@@ -16,5 +16,7 @@ export class SelectGroupService {
     } 
     SEARCHLIST(idParent:number): Observable<any[]>{
         return this._http.get(this.apiUrl+idParent+"/worddsr").map((r:Response)=>r.json());
-    } 
+    }
+    public s:number=0;
+    public tongsocau:number;
 }
